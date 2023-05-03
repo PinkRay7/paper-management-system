@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer>
+  <v-navigation-drawer app permanent absolute>
     <v-list>
       <v-list-item
         :prepend-avatar="userInfo.avatarUrl"
@@ -27,7 +27,7 @@
     flat 
     color="#B886F8" 
     @click="logout">
-    退出登录
+    LOGOUT
     </v-btn>
   </v-navigation-drawer>
 </template>
@@ -47,6 +47,14 @@ export default {
       default: () => ({}),
     },
   },
+  setup() {
+    function logout() {
+      console.log("LOGOUT")
+    }
+    return {
+      logout
+    }
+  }
 };
 </script>
 
@@ -60,7 +68,7 @@ export default {
   transform: translateX(-50%);
   color: white;
   font-size: medium;
-  font-weight: 600;
+  font-weight: bold;
   border-radius: 5px;
 }
 </style>

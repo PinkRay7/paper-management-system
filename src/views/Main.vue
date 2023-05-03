@@ -4,8 +4,9 @@
       <common-navigation
         :userInfo="userInfo"
         :menuItems="menuItems"
+        class="custom-drawer"
       ></common-navigation>
-      <v-main>
+      <v-main class="custom-main">
         <router-view></router-view>
       </v-main>
     </v-container>
@@ -69,4 +70,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.custom-drawer {
+  position: fixed;
+}
+.custom-main {
+  margin-left: 10%;
+  padding-left: 3%;
+  overflow-y: auto;
+}
+</style>
