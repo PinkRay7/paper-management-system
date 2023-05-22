@@ -4,6 +4,7 @@ import Main from '@/views/Main.vue'
 import Home from '@/views/Home.vue'
 import GroupList from '@/views/Group/GroupList.vue';
 import Notification from '@/views/Notification/Notification.vue'
+import GroupInfo from '@/views/Group/GroupInfo.vue';
 // import Login from '@/views/Login.vue'
 // import Register from '@/views/Register.vue'
 
@@ -37,7 +38,7 @@ const routes = [
   {
     path: '/',
     name: 'Main',
-    component: Main,
+    component: () => import('@/views/Main.vue'),
     // redirect: '/login',
     // meta: {
     //   isLogin: true
@@ -46,17 +47,23 @@ const routes = [
       {
         path: '/home',
         name: 'Home',
-        component: Home
+        component: () => import('@/views/Home.vue'),
       },
       {
         path: '/group',
-        name: 'Group',
-        component: GroupList
+        name: 'GroupList',
+        component: () => import('@/views/Group/GroupList.vue'),
       },
       {
         path: '/notification',
         name: 'Notification',
-        component: Notification
+        component: () => import('@/views/Notification/Notification.vue'),
+      },
+      {
+        path: '/group/:groupId',
+        name: 'GroupInfo',
+        component: () => import('@/views/Group/GroupInfo.vue'),
+        props: true
       },
       // { path: '', redirect: 'dashboard' },
       // { path: 'dashboard', component: Dashboard },
